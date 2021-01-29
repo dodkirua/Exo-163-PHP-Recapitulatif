@@ -207,13 +207,50 @@ $videotheque = array(
 echo '12.Mes films : <br>';
 //ajoutez votre code ici
 echo '<br><br>';
-
+function display ($videotheque){
+    foreach ($videotheque as $film) {
+        echo "Nom du film : " . $film["nom"] . " <br>date de sortie : " . $film["date"] . "<br>";
+        echo "Réalisateur : " . $film["realisateur"] . "<br>";
+        echo "Les acteurs : <br>";
+        foreach ($film["acteurs"] as $acteur) {
+            echo "$acteur <br>";
+        }
+        echo "<br>";
+    }
+}
+display($videotheque);
 //----------------------------------------
 //Afficher toutes les informations de la vidéothèque
 //reprenez le tableau ci-dessus, ajoutez-y 3 de vos films préférés avec les mêmes
 //d'informations (nom, date, realisateur, acteurs) et en plus de ces informations
 //rajoutez un synopsis
 
+$videotheque[] = array(
+    'nom' => 'Le retour du Jedi',
+    'date' => 1983,
+    'realisateur' => 'Richard Marquand',
+    'acteurs' => array(
+        'Mark Hamill','Harrison Ford','Carrie Fisher','Billy Dee Williams','Anthony Daniels',
+    )
+);
+$videotheque[] = array(
+    'nom' => 'Astérix et Obélix : Mission Cléopâtre',
+    'date' => 2002,
+    'realisateur' => 'Alain Chabat',
+    'acteurs' => array(
+        'Gérard Depardieu','Christian Clavier','Claude Rich','Jamel Debbouze','Monica Bellucci',"Alain Chabat","Gérard Darmon",
+    )
+);
+$videotheque[] =   array(
+    'nom' => 'Avengers',
+    'date' => 2012,
+    'realisateur' => 'Joss Whedon',
+    'acteurs' => array(
+        'Robert Downey Jr.','Chris Evans','Mark Ruffalo','Chris Hemsworth','Scarlett Johansson',
+    )
+);
+
 echo '13.Mes films : <br>';
 //ajoutez votre code ici
-echo '<br><br>';
+
+display($videotheque);
